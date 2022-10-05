@@ -1,9 +1,11 @@
 window.onload = function () {
     let todos = document.querySelectorAll('.color')
     let teste = JSON.parse(localStorage.getItem('colorPalette'))
+    if (teste != null){
     todos[1].style.backgroundColor = teste [0]
     todos[2].style.backgroundColor = teste [1]
     todos[3].style.backgroundColor = teste [2]
+    }
 
 function trocaNaPagina() {
     let todos = document.querySelectorAll('.color')
