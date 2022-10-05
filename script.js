@@ -6,16 +6,18 @@ window.onload = function () {
     todos[2].style.backgroundColor = teste [1]
     todos[3].style.backgroundColor = teste [2]
     }
-    todos[0].className += ' selected'
-
+    document.querySelectorAll('.color')[0].classList.add('color', 'selected')
+}
+document.querySelectorAll('.color')[0].style.backgroundColor = 'rgb(0,0,0)'
+document.querySelectorAll('.color')[1].style.backgroundColor = 'rgb(0,255,255)'
+document.querySelectorAll('.color')[2].style.backgroundColor = 'rgb(0,130,170)'
+document.querySelectorAll('.color')[3].style.backgroundColor = 'rgb(120,200,0)'
 function trocaNaPagina() {
     let todos = document.querySelectorAll('.color')
-
     let primeiro = todos[1].style.backgroundColor = `rgb(${alteraCores()})`
     let segundo = todos[2].style.backgroundColor = `rgb(${alteraCores()})`
     let terceiro = todos[3].style.backgroundColor = `rgb(${alteraCores()})`  
-    let test = [];
-    test.push(primeiro, segundo, terceiro)
+    let test = [primeiro, segundo, terceiro];
     localStorage.setItem('colorPalette', JSON.stringify(test))
 }
 
@@ -68,6 +70,13 @@ if (event.target.className == 'color'){
 }  
 tradeName()
 
-
-
-}
+function tradeColor (){
+    let pixels = document.querySelectorAll('.pixel')
+    for(let index = 0; index < pixels.length; index += 1){
+    pixels[index].addEventListener('click', function(event){
+        if (event.target.className == 'pixel'){
+            event.target.style.backgroundColor = document.querySelector('.selected').style.backgroundColor
+        }
+    })
+}}
+tradeColor()
