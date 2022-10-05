@@ -6,6 +6,7 @@ window.onload = function () {
     todos[2].style.backgroundColor = teste [1]
     todos[3].style.backgroundColor = teste [2]
     }
+    todos[0].className += ' selected'
 
 function trocaNaPagina() {
     let todos = document.querySelectorAll('.color')
