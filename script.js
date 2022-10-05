@@ -7,7 +7,7 @@ window.onload = function () {
         todos[3].style.backgroundColor = teste[2]
     }
     document.querySelectorAll('.color')[0].classList.add('color', 'selected')
-
+    function loadSavedPixels (){
     let pixelsOnLoad = document.querySelectorAll('.pixel')
     let pixelsParse = JSON.parse(localStorage.getItem('pixelBoard'))
     for (index = 0; index < pixelsOnLoad.length; index += 1) {
@@ -16,6 +16,22 @@ window.onload = function () {
         }
     }
 }
+    function saveSize (){
+        let tableSize = JSON.parse(localStorage.getItem('boardSize'))
+        if (tableSize < 5){
+            tableSize = 5
+        }
+        if (tableSize > 50){
+            tableSize = 50
+        }
+        if (tableSize >= 5 && tableSize<= 50){
+        removeTable()
+        criaTabela(tableSize)
+        tradeColor()
+        }}
+        saveSize()
+        loadSavedPixels()
+    }
 document.querySelectorAll('.color')[0].style.backgroundColor = 'rgb(0,0,0)'
 document.querySelectorAll('.color')[1].style.backgroundColor = 'rgb(0,255,255)'
 document.querySelectorAll('.color')[2].style.backgroundColor = 'rgb(0,130,170)'
@@ -105,7 +121,6 @@ function saveLS() {
         let colorForSave = pixelForSave[index].style.backgroundColor
         arrForSave.push(colorForSave)
     }
-    console.log(arrForSave)
     localStorage.setItem('pixelBoard', JSON.stringify(arrForSave))
 }
 let local = document.querySelector('#pixel-board');
@@ -122,6 +137,7 @@ function removeTable (){
 
 buttonSize.addEventListener('click', function(event){
 let input = document.querySelector('#board-size')
+localStorage.setItem('boardSize',JSON.stringify(input.value))
 if (input.value == ''){
     alert('Board inválido!')
 }
@@ -134,6 +150,8 @@ if (input.value > 50){
 if (input.value >= 5 && input.value <= 50){
 removeTable()
 criaTabela(input.value)
+tradeColor()
+saveLS()
 }
 })
 
