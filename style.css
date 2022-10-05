@@ -34,3 +34,13 @@
 #pixel-board{
     border: 2px solid black;
 }
+
+/* .brake{
+    content: ' ';
+    display: block;
+    margin: -4px;
+} */
+
+body{
+    line-height: 0%;
+}

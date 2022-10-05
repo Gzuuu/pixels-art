@@ -54,4 +54,20 @@ for (index = 0; index < numero1; index += 1){
 }
 criaTabela()
 
+function tradeName (){
+let coresFilhas = document.querySelectorAll('.color')
+let cores = document.querySelector('#color-palette')
+cores.addEventListener('click', function(event){
+for (let index = 0; index < coresFilhas.length; index += 1){
+    coresFilhas[index].className = 'color'
+}
+if (event.target.className == 'color'){
+    event.target.className += ' selected'
+}
+})
 }  
+tradeName()
+
+
+
+}
