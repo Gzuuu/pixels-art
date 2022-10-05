@@ -80,3 +80,11 @@ function tradeColor (){
     })
 }}
 tradeColor()
+
+let cleanButton = document.querySelector('#clear-board')
+cleanButton.addEventListener('click', function(){
+    let pixels = document.querySelectorAll('.pixel')
+    for (let index = 0; index < pixels.length; index += 1){
+        pixels[index].style.backgroundColor = 'rgb(255,255,255)'
+    }
+})
