@@ -7,6 +7,14 @@ window.onload = function () {
     todos[3].style.backgroundColor = teste [2]
     }
     document.querySelectorAll('.color')[0].classList.add('color', 'selected')
+
+    let pixelsOnLoad = document.querySelectorAll('.pixel')
+    let pixelsParse = JSON.parse(localStorage.getItem('pixelBoard'))
+    for (index = 0; index < pixelsOnLoad.length; index += 1){
+        if (pixelsParse != null){
+            pixelsOnLoad[index].style.backgroundColor = pixelsParse[index]
+        }
+    }
 }
 document.querySelectorAll('.color')[0].style.backgroundColor = 'rgb(0,0,0)'
 document.querySelectorAll('.color')[1].style.backgroundColor = 'rgb(0,255,255)'
@@ -87,4 +95,17 @@ cleanButton.addEventListener('click', function(){
     for (let index = 0; index < pixels.length; index += 1){
         pixels[index].style.backgroundColor = 'rgb(255,255,255)'
     }
+    localStorage.removeItem('pixelBoard')
 })
+
+function saveLS (){
+let pixelForSave = document.querySelectorAll('.pixel')
+let arrForSave = [];
+for(let index = 0; index < pixelForSave.length; index += 1){
+    let colorForSave = pixelForSave[index].style.backgroundColor
+    arrForSave.push(colorForSave)
+}
+localStorage.setItem('pixelBoard',JSON.stringify(arrForSave))
+}
+let local = document.querySelector('#pixel-board');
+local.addEventListener('click', saveLS)
