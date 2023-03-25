@@ -24,8 +24,17 @@
 
 body{
     line-height: 0%;
+    background-image: url('fundo-de-cor-holi-em-fundo-branco.jpg');
+    background-repeat: no-repeat;
+    background-size: cover;
 }
 
 #board-size{
     width: 60px;
+}
+
+main{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 }
