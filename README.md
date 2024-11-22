@@ -24,7 +24,7 @@ Este projeto foi desenvolvido como parte do aprendizado em desenvolvimento web, 
 ## Como Executar o Projeto
 1. Clone o repositório do projeto:
    ```bash
-   git clone https://github.com/Gzuuu/Project-pixels-art.git
+   git clone https://github.com/Gzuuu/pixels-art.git
    ```
 2. Acesse o diretório do projeto:
    ```bash
